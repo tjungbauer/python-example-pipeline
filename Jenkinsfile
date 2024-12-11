@@ -17,17 +17,6 @@ pipeline {
         }
     }
     stages {
-        stage('Clone Repository') {
-            steps {
-                checkout([
-                    $class: 'GitSCM', 
-                    branches: [[name: '*/master']], 
-                    userRemoteConfigs: [[
-                        url: 'https://github.com/tjungbauer/python-example-pipeline.git',
-                    ]]
-                ])
-            }
-        }
         stage('Run Python Script') {
             steps {
                 sh 'python hello.py'
